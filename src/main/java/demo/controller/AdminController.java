@@ -17,7 +17,7 @@ public class AdminController extends BaseController {
 
     @RequestMapping("/login")
     private String login(Admin admin) {
-        System.out.println("1111");
+
         admin = adminService.login(admin);
         if (admin != null) {
 
