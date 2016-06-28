@@ -9,13 +9,12 @@
 <%@ include file="/common/inc.jsp"%>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>登陆</title>
   </head>
   <body>
-  <a href="${ctx}/admin/index.jsp">管理员登录</a>
+  <a href="${ctx}/register.jsp">注册</a>
 
-
-  <form action="？？？？？？？" method="post">
+  <form action="${ctx}/user/login" method="post">
     <input type="text" name="username" placeholder="用户名"><br>
     <input type="password" name="password" placeholder="密码"><br>
     <input type="submit" value="登录">

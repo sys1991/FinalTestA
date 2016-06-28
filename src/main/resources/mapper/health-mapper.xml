@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="health">
+    <insert id="create" parameterType="health">
+        INSERT INTO db_final.health VALUES (NULL,#{title},#{summary},#{substance},now())
+    </insert>
+    <select id="list" resultType="health">
+        SELECT *
+        FROM db_final.health
+    </select>
+
+    <select id="search" resultType="health" parameterType="int">
+        SELECT *
+        FROM db_final.health
+        WHERE id = #{id}
+    </select>
+
+    <delete id="remove" parameterType="int">
+        DELETE FROM db_final.health WHERE id = #{id}
+    </delete>
+    <update id="modify">
+        UPDATE db_final.health
+        SET
+            title = #{title},summary = #{summary},substance = #{substance}
+        WHERE id = #{id}
+    </update>
+
+    <select id="userQuery" parameterType="health" resultType="health">
+        select *
+        from db_final.health
+        WHERE title LIKE concat('%',concat(#{title},'%')) OR health.substance LIKE concat('%',concat(#{substance},'%'))
+
+    </select>
+</mapper>
